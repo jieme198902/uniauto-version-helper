@@ -51,15 +51,39 @@ public class VersionHelper {
     private CheckVersionResultListener checkVersionResultListener;
     //是否只是检测版本
     private boolean justCheckNotDownload = false;
+    //添加顶部的图片
+    private Integer setTopPicDrawableId = -1;
     ////////////----------------------//////////////
 
+    /**
+     * 设置监听器
+     *
+     * @param checkVersionResultListener
+     * @return
+     */
     public VersionHelper setCheckVersionResultListener(CheckVersionResultListener checkVersionResultListener) {
         this.checkVersionResultListener = checkVersionResultListener;
         return this;
     }
 
+    /**
+     * 设置是否只是检测版本而不下载
+     *
+     * @param justCheckNotDownload
+     * @return
+     */
     public VersionHelper setJustCheckNotDownload(boolean justCheckNotDownload) {
         this.justCheckNotDownload = justCheckNotDownload;
+        return this;
+    }
+
+    /**
+     * 设置顶部图片
+     *
+     * @param setTopPicDrawableId
+     */
+    public VersionHelper setSetTopPic_450_204_DrawableId(Integer setTopPicDrawableId) {
+        this.setTopPicDrawableId = setTopPicDrawableId;
         return this;
     }
 
@@ -122,6 +146,8 @@ public class VersionHelper {
 
 
     /**
+     * 设置url
+     *
      * @param url
      * @return
      */
@@ -155,7 +181,8 @@ public class VersionHelper {
                 .setPost(true)
                 //更新地址
                 .setUpdateUrl(url)
-//                .setTopPic(R.mipmap.lib_update_app_top_bg)
+                //设置顶部图片
+                .setTopPic(setTopPicDrawableId == -1 ? R.mipmap.lib_update_app_top_bg : setTopPicDrawableId)
                 //实现 httpManager 接口的对象
                 .setHttpManager(new OkGoUpdateHttpUtil())
                 .build()

@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         versionHelper.createParam(this)
                 .setAppKey("5fb9c5849535c13917c2cf9baaece6ef9693ef27")
                 .setUrl("https://app.cxql.net/versionManager/admin/checkVersion")
+                .setSetTopPic_450_204_DrawableId(R.mipmap.ic_launcher)
                 .start(this);
     }
 }
