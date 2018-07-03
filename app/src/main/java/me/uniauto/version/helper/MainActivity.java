@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import me.uniauto.version.entity.CUpdateAppBean;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -33,9 +35,19 @@ public class MainActivity extends AppCompatActivity {
     private void checkVersion() {
         VersionHelper versionHelper = new VersionHelper();
         versionHelper.createParam(this)
-                .setAppKey("5fb9c5849535c13917c2cf9baaece6ef9693ef27")
-                .setUrl("https://app.cxql.net/versionManager/admin/checkVersion")
+                .setAppKey("XXXXXXXXXXXXXXXXXXX")
+                .setUrl("https://XXXXXXXX/checkVersion")
                 .setSetTopPic_450_204_DrawableId(R.mipmap.ic_launcher)
+                //可不加
+                .setCheckVersionResultListener(new VersionHelper.CheckVersionResultListener() {
+                    @Override
+                    public CUpdateAppBean createUpdateBean(String result) {
+                        CUpdateAppBean bean = new CUpdateAppBean();
+                        //自定义从String转成返回的对象
+
+                        return bean;
+                    }
+                })
                 .start(this);
     }
 }
