@@ -15,6 +15,7 @@ import com.vector.update_app.UpdateCallback;
 import java.util.HashMap;
 import java.util.Map;
 
+import helper.version.uniauto.me.version_helper.R;
 import me.uniauto.version.entity.CUpdateAppBean;
 import me.uniauto.version.entity.DefaultCheckVersionEntity;
 import me.uniauto.version.http.util.OkGoUpdateHttpUtil;
@@ -154,6 +155,7 @@ public class VersionHelper {
                 .setPost(true)
                 //更新地址
                 .setUpdateUrl(url)
+//                .setTopPic(R.mipmap.lib_update_app_top_bg)
                 //实现 httpManager 接口的对象
                 .setHttpManager(new OkGoUpdateHttpUtil())
                 .build()
